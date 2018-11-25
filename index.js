@@ -1,13 +1,21 @@
-var express = require('express')
-var app = express()
-var gMaps = require('./googleMaps/gmaps')
+const express = require('express');
+const http = require('http');
+const socketio = require('socket.io');
+const path = require('path');
+const bodyParser = require('body-parser');
+const port = process.env.PORT || 3001;
+const app = express();
+require('dotenv').config({ path: '.env' });
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+const server = http.createServer(app);
+const io = socketio(server);
 
-app.listen(3000, console.log("App listening on port 3000"))
+app.use(bodyParser.json());
 
-app.get('/gmaps', function (req, res){
-  gMaps.getRouteTime("100 WalterScott Crescent, Markham, CA", "Queen's University, Kingston, ON", res)
-})
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+require('./routes/tweets.js')(app, io);
+
+server.listen(port, () => {
+    console.log('server is up');
+});

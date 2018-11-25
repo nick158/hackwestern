@@ -4,7 +4,9 @@ import './App.css';
 import GMaps from './Components/GMaps/GMaps'
 import MapBox from './Components/MapBox/MapBox'
 
+import TwitterFeed from './Components/TwitterFeed/TwitterFeed'
 class App extends Component {
+
   render() {
     return (
       <div className="container">

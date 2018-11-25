@@ -7,10 +7,18 @@
     "@mapbox/togeojson": "^0.16.0",
     "google-maps-react": "^2.0.2",
     "mapbox-gl": "^0.51.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
-  },
+      "body-parser": "^1.18.2",
+      "dotenv": "^5.0.1",
+      "express": "4.16.3",
+      "react": "^16.2.0",
+      "react-dom": "^16.2.0",
+      "react-scripts": "1.1.1",
+      "react-transition-group": "^1.2.1",
+      "socket.io": "^2.0.4",
+      "socket.io-client": "^2.0.4",
+      "twitter": "^1.7.1"
+    },
+  "proxy": "http://localhost:3001",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
