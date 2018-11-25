@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import socketIOClient from "socket.io-client";
+import axios from 'axios';
 require('dotenv').config();
 
 class TwitterFeed extends Component{
@@ -16,7 +17,9 @@ class TwitterFeed extends Component{
     socket.on('connect', () => {
       console.log("Socket Connected");
       socket.on("tweets", data => {
+        
         let newList = [data.text].concat(this.state.items);
+        
         console.log(data)
         this.setState({ items: newList });
       });
@@ -31,10 +34,9 @@ class TwitterFeed extends Component{
 }
   render(){
     let items = this.state.items;
-
     let itemsCards = <div>
       {items.map((x,i) =>
-        <p>{x}</p>
+        <p className="tweet">{x}</p>
       )}
     </div>
 
@@ -44,9 +46,13 @@ class TwitterFeed extends Component{
 
     return(
       <div>
+      <p className="twitter-title">Live Social Feed</p>
+
+      <div>
       {
         items.length > 0 ? itemsCards : loading
       }
+      </div>
       </div>
     )
   }

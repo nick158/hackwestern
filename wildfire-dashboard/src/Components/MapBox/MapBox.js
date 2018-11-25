@@ -18,7 +18,6 @@ class MapBox extends Component{
 
   componentDidMount(){
 
-
     const {lng, lat, zoom} = this.state;
     // console.log(process.env.MAPBOX)
     const map = new mapboxgl.Map({
@@ -32,7 +31,6 @@ class MapBox extends Component{
     //   .setLngLat([5, 34])
     //   .addTo(map);
     // ;
-
 //event handler
     map.on('move', () => {
       const { lng, lat } = map.getCenter();
@@ -52,7 +50,10 @@ class MapBox extends Component{
     const { lng, lat, zoom } = this.state;
 
     return (
+      <div>
       <div id="map-container">
+      </div>
+      <p className="map-text">Current Wildfire Tracker</p>
       </div>
     );
   }
