@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl'
 
-require('dotenv').config();
 mapboxgl.accessToken = 'pk.eyJ1IjoibmljazE1OCIsImEiOiJjam92NWwwb3kxM2FyM3BvNHc0Mjk2dDhlIn0.alo5roTHXLOiJCi85gShkg';
 class MapBox extends Component{
   constructor(props) {
@@ -19,9 +18,15 @@ class MapBox extends Component{
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/nick158/cjovuckr93az52snrhwgql1c5',
-      center: [2.317600, 48.866500],
-      zoom: 12.0
+      center: [5, 34],
+      zoom: 1.5
     })
+
+    const marker = new mapboxgl.Marker()
+      .setLngLat([5, 34])
+      .addTo(map);
+    ;
+
 //event handler
     map.on('move', () => {
       const { lng, lat } = map.getCenter();

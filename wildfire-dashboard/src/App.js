@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import MapBox from './Components/MapBox/MapBox'
+import GMaps from './Components/GMaps/GMaps'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <MapBox></MapBox>
-        </header>
+      <div className="container">
+      <div className="map-container">
+          <GMaps></GMaps>
+      </div>
       </div>
     );
   }
