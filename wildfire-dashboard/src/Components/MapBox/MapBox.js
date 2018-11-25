@@ -1,31 +1,37 @@
 import React, { Component } from 'react';
-import mapboxgl from 'mapbox-gl'
+import mapboxgl from 'mapbox-gl';
+import axios from 'axios';
+import toGeoJSON from '@mapbox/togeojson';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibmljazE1OCIsImEiOiJjam92NWwwb3kxM2FyM3BvNHc0Mjk2dDhlIn0.alo5roTHXLOiJCi85gShkg';
+mapboxgl.accessToken = 'pk.eyJ1IjoiYW1hbm1hdGh1ciIsImEiOiJjam93ZzZrYjcwM3V2M3dwZzYzNHY4enYyIn0.d4p2Z0R8HJwCeyugUCypbA';
 class MapBox extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      lng: 5,
+      lng: 2000,
       lat: 34,
       zoom: 1.5
     };
   }
+  
+
 
   componentDidMount(){
+
+
     const {lng, lat, zoom} = this.state;
-    console.log(process.env.MAPBOX)
+    // console.log(process.env.MAPBOX)
     const map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: 'mapbox://styles/nick158/cjovuckr93az52snrhwgql1c5',
-      center: [5, 34],
-      zoom: 1.5
+      container: "map-container",
+      style: 'mapbox://styles/amanmathur/cjowgwzze4rda2smrjgx07w9m',
+      center: [-90, 40],
+      zoom: 4
     })
 
-    const marker = new mapboxgl.Marker()
-      .setLngLat([5, 34])
-      .addTo(map);
-    ;
+    // const marker = new mapboxgl.Marker()
+    //   .setLngLat([5, 34])
+    //   .addTo(map);
+    // ;
 
 //event handler
     map.on('move', () => {
@@ -38,15 +44,20 @@ class MapBox extends Component{
       });
     });
   }
+
+
+
+
   render() {
     const { lng, lat, zoom } = this.state;
 
     return (
-      <div>
-        <div ref={el => this.mapContainer = el} className="absolute top right left bottom" />
+      <div id="map-container">
       </div>
     );
   }
+
+
 }
 
 export default MapBox;
