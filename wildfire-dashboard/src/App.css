@@ -1,12 +1,27 @@
+.container{
+  background: #ece9e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ece9e6, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ece9e6, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
 .map-container{
   width: 47%;
   margin: 1%;
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 55vh;
+  height: 45vh;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+  background-color: white;
 }
+
+.mapboxgl-canvas{
+  width: 100% !important;
+  position: absolute;
+}
+
 
 .social-container{
   width: 49%;
@@ -16,15 +31,20 @@
   top: 0;
   bottom: 0;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+  overflow: scroll;
+  background-color: white;
+
 }
 
 .score-container{
+  text-align: center;
+  background-color: white;
   width: 47%;
   margin: 1%;
-  position: relative;
+  position: absolute;
   left: 0;
   top: 0;
-  height: 35vh;
+  height: 45vh;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
 
 }
@@ -45,7 +65,7 @@
 }
 
 .status-circle{
-  margin: 10px 0 0 10px;
+  margin: 20px auto;
   width: 100px;
   height: 100px;
   background-color: #efefef;
@@ -69,4 +89,29 @@
 
 .evacuate span{
   font-size: 15px;
+}
+
+.social-container div div div p:nth-child(2n){
+  display: none;
+}
+
+.tweet{
+  padding: 20px;
+}
+
+.twitter-title{
+  color: #1dcaff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.map-text{
+  position: absolute;
+  bottom: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(128, 16, 16);
+  padding: 0 0 15px 15px;
+  margin: 0;
 }
