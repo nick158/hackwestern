@@ -1,2 +1,2 @@
 # hackwestern
-run npx nodemon
+Dashboard for visualizing and getting real time information on forest fires
